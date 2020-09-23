@@ -1,0 +1,40 @@
+<mat-sidenav-container class="example-container" color="primary">
+    <mat-sidenav color="primary"
+        #sidenav id="sidenav" mode="side" 
+        opened 
+        class="example-sidenav"
+        [fixedInViewport]="true" 
+        [fixedTopGap]="10"
+        [fixedBottomGap]="10">
+        <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+               Products
+              </mat-expansion-panel-header>
+              <ul>
+                  <li><a routerLink="product/productcategory">Product Categories</a></li>
+                  <li><a routerLink="product/salesproduct">Sales Products</a></li>
+                  <li><a routerLink="product/productsize">Product Sizes</a></li>
+              </ul>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    Pricing
+                   </mat-expansion-panel-header>
+                   <ul>
+                       <li><a routerLink="pricing/pricingperiods">Pricing Periods</a></li>
+                       <li><a routerLink="pricing/productprice">Product Prices</a></li>
+                   </ul>
+            </mat-expansion-panel>
+          </mat-accordion>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- <mat-toolbar color="primary">
+            <span>Products > Product Category</span>
+        </mat-toolbar> -->
+        <mat-progress-bar *ngIf="loading" color="accent" mode="indeterminate"></mat-progress-bar>
+        <div style="width: 85vw; height: 100vh">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

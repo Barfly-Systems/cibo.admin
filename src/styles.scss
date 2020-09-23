@@ -1,1 +1,150 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./vars.scss";
+@import "~@angular/material/theming";
+
+html, body, .h-100 { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/*SPACING*/
+.pt-2{
+    padding-top: $paddingUnit * 2.5 !important;
+}
+.pb-2{
+    padding-bottom: $paddingUnit * 2.5 !important;
+}
+.px-1{
+    padding-left: $paddingUnit !important;
+    padding-right: $paddingUnit !important;
+}
+
+.px-2{
+    padding-left: $paddingUnit * 3 !important;
+    padding-right: $paddingUnit * 3 !important;
+}
+.my-1{
+    margin-top: $paddingUnit !important;
+    margin-bottom: $paddingUnit !important;
+    //adam
+}
+.my-2{
+    margin-top: $paddingUnit * 2 !important;
+    margin-bottom: $paddingUnit * 2 !important;
+}
+.mx-2{
+    margin-left: $paddingUnit * 2 !important;
+    margin-right: $paddingUnit * 2 !important;
+}
+.mr-1{
+    margin-right: $paddingUnit !important;
+}
+.mr-2{
+    margin-right: $paddingUnit * 3 !important;
+}
+.mb-1{
+    margin-bottom: $paddingUnit !important;
+}
+.mb-2{
+    margin-bottom: $paddingUnit * 2.5 !important;
+}
+.mt-2{
+    margin-top: $paddingUnit * 2.5 !important;
+}
+/*END OF SPACING*/
+/*SIZING*/
+.w-30{
+    width: 30%;
+}
+.w-50{
+    width: 50%;
+}
+.w-70{
+    width: 69%;
+}
+/*END OF SIZING*/
+/*DISPLAY*/
+.d-block{
+    display: block;
+}
+.d-inline-block{
+    display: inline-block;
+}
+.p-fixed{
+    position: fixed;
+}
+.p-sticky{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+.tx-5{
+    transform: translateX(5vw);
+}
+.v-align-top{
+    vertical-align: top;
+}
+/*END OF DISPLAY*/
+
+/*ALIGN*/
+
+/*TEXT*/
+.bold{
+    font-weight: 550 !important;
+}
+.center{
+    text-align: center;
+}
+.text-primary{
+}
+.name-large{
+    font-size: 1rem;
+    font-weight: 450 !important;
+    padding-top: 2px;
+    padding-bottom: $paddingUnit;
+}
+.capitalize{
+    text-transform: capitalize;
+}
+.green{
+    color: $brandColAccent;
+}
+.red{
+    color: red;
+}
+/*END OF TEXT*/
+
+/*BUTTONS*/
+.bottom-button-container{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+}
+.button-right{
+    text-align: right;
+}
+/*END OF BUTTONS*/
+
+/*COLORS*/
+.transparent-bg{
+    background-color: transparent;
+}
+.st-white-bg{
+    background-color: rgba(255,255,255,0.6);
+}
+.accent-color{
+    color: $brandColAccent;
+}
+/*END OF COLORS*/
+
+.categoryList{
+    padding: 10px 10px 30px 10px;
+}
+
+.t-right{
+  text-align: right;
+}
+
+.finger{
+    cursor: pointer;
+}

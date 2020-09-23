@@ -1,0 +1,30 @@
+<div class="login-box">
+    <div class="form-container">
+        <div>
+            <mat-form-field>
+                <mat-label>Organisation ID</mat-label>
+                <input matInput type='organisationId' [(ngModel)]="credentials.organisationId">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>User Name</mat-label>
+                <input matInput type="username" [(ngModel)]="credentials.username">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type='password' [(ngModel)]="credentials.password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <div class="t-right">
+            <button mat-flat-button color="accent" class="mt-2" (click)="tryLogin()">
+                Login
+            </button>
+        </div>
+    </div>
+</div>

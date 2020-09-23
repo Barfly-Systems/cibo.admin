@@ -3,16 +3,99 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+
+//ANGULAR MATERIAL
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+//DIRECTIVES
+import { OnlyNumber } from './directives/only-number.directive';
+//VIEWS
+import { LoginView } from './views/login/login.view';
+import { DashboardView } from './views/dashboard/dashboard.view';
+import { AppView } from './views/app/app.view';
+import { ProductCategoryView } from './views/product-category/product-category.view';
+import { SaleproductView } from './views/saleproduct/saleproduct.view';
+//COMPONENTS
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { ProductCategoryCardComponent } from './components/product-category-card/product-category-card.component';
+import { SaleproductListComponent } from './components/saleproduct-list/saleproduct-list.component';
+import { ProductSizeComponent } from './views/product-size/product-size.component';
+import { ProductSizeListComponent } from './components/product-size-list/product-size-list.component';
+import { ProductPriceListComponent } from './components/product-price-list/product-price-list.component';
+import { ProductPriceView } from './views/product-price/product-price.view';
+import { PriceListTableComponent } from './components/price-list-table/price-list-table.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SelectProductCategoryImageDialog } from './components/dialogs/select-product-category-image/select-product-category-image.dialog';
+import { PricingPeriodView } from './views/pricing-period/pricing-period.view';
+import { PricingPeriodListComponent } from './components/pricing-period-list/pricing-period-list.component';
+
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginView,
+    DashboardView,
+    SidenavComponent,
+    AppView,
+    ProductCategoryView,
+    SaleproductView,
+    CategoryListComponent,
+    ProductCategoryCardComponent,
+    SaleproductListComponent,
+    ProductSizeComponent,
+    ProductSizeListComponent,
+    ProductPriceListComponent,
+    ProductPriceView,
+    PriceListTableComponent,
+    FilterPipe,
+    OnlyNumber,
+    SelectProductCategoryImageDialog,
+    PricingPeriodView,
+    PricingPeriodListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule, 
+    MatButtonModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatListModule,
+    MatTableModule,
+    MatCardModule,
+    MatSlideToggleModule,
+    MatProgressBarModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

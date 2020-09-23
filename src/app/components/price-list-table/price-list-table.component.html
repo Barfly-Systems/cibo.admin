@@ -1,0 +1,58 @@
+<table mat-table [dataSource]="PriceListData" class="mat-elevation-z8">
+    <!-- <ng-container matColumnDef="Product">
+        <th mat-header-cell *matHeaderCellDef>Product</th>
+        <td mat-cell *matCellDef="let product">{{product.name}}</td>
+    </ng-container>
+    <ng-container matColumnDef="Size">
+        <th mat-header-cell *matHeaderCellDef>Size</th>
+        <td mat-cell *matCellDef="let size">{{size.sizeName}}</td>
+    </ng-container> -->
+    <ng-container *ngFor="let col of displayedColumns">
+        <ng-container matColumnDef="{{col}}">
+            <th mat-header-cell *matHeaderCellDef>{{col}}</th>
+            <td mat-cell *matCellDef="let el">
+                <mat-form-field class="input-top-padded" *ngIf="tryParseNumber(el[col]) || el[col] == null || el[col] == undefined || el[col].trim() == ''" >
+                    <mat-label>Price</mat-label>
+                    <input OnlyNumber="true" matInput type='text' [(ngModel)]="el[col]">
+                </mat-form-field>
+                <span *ngIf="!tryParseNumber(el[col])">{{el[col]}}</span>
+            </td>
+        </ng-container>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="finger"></tr>
+</table>
+
+
+<!-- <ng-container *ngFor="let discol of displayedColumns">
+    <ng-container matColumnDef="StandardPriceGross">
+        <th mat-header-cell *matHeaderCellDef>{{discol}}</th>
+        <td mat-cell *matCellDef="let pricing">{{pricing.StandardPriceGross}}</td>
+    </ng-container>
+</ng-container> -->
+
+
+<!-- <table mat-table [dataSource]="PriceListData" class="mat-elevation-z8">
+    <ng-container matColumnDef="Product">
+        <th class="w-100" mat-header-cell *matHeaderCellDef>Product</th>
+        <td [attr.rowSpan]="1" mat-cell *matCellDef="let product">{{product.Name}}</td>
+    </ng-container>
+    <ng-container matColumnDef="Size">
+        <th class="w-100" mat-header-cell *matHeaderCellDef>Sizes</th>
+        <ng-container *matCellDef="let product">
+            <td mat-cell class="test" *ngFor="let size of product.Sizes">
+                    {{size.SizeName}}    
+            </td>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngFor="let pricingPeriod of PriceListData[0].Sizes[0].PricingPeriods; index as i2" matColumnDef="{{pricingPeriod.PeriodName}}">
+        <th mat-header-cell *matHeaderCellDef>{{pricingPeriod.PeriodName}}</th>
+        <ng-container *ngFor="let size of PriceListData[i2].Sizes; index as i3">
+            <td mat-cell class="test" *matCellDef="let prol let i = index">
+                {{PriceListData[i2].Sizes[i3].PricingPeriods[i].StandardPriceGross}}
+            </td>
+        </ng-container>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->

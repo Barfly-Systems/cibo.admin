@@ -1,0 +1,20 @@
+<table mat-table [dataSource]="productSizeList" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let productSize">{{productSize.id}}</td>
+    </ng-container>
+    <ng-container matColumnDef="sizeName">
+        <th mat-header-cell *matHeaderCellDef>Size Name</th>
+        <td mat-cell *matCellDef="let productSize">{{productSize.sizeName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="sizeMl">
+        <th mat-header-cell *matHeaderCellDef>Size Ml</th>
+        <td mat-cell *matCellDef="let productSize">{{productSize.sizeMl}}</td>
+    </ng-container>
+    <ng-container matColumnDef="isActive">
+        <th mat-header-cell *matHeaderCellDef>Active</th>
+        <td mat-cell *matCellDef="let productSize"><mat-icon [class]="productSize.isActive ? 'green' : 'red'">{{ productSize.isActive ? 'check' : 'close' }}</mat-icon></td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

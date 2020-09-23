@@ -1,0 +1,16 @@
+#sidenav{
+    width: 15vw;
+}
+mat-expansion-panel{
+    box-shadow: none !important;
+}
+mat-expansion-panel-header{
+    height: 20px !important;
+}
+
+ul>li{
+    list-style-type: none;
+}
+ ul>li>a{
+     text-decoration: none;
+ }

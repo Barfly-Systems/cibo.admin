@@ -12,6 +12,8 @@ import { PricingPeriodView } from './views/pricing-period/pricing-period.view';
 import { ProductPriceListComponent } from './components/product-price-list/product-price-list.component';
 //RESOLVERS
 import { PriceListResolver } from './resolvers/price-list.resolver';
+import { TradingHourView } from './views/trading-hour/trading-hour.view';
+import { ProductTypeView } from './views/product-type/product-type.view';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -20,10 +22,12 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardView },
       { path: 'product/productcategory', component: ProductCategoryView},
+      { path: 'product/producttype', component: ProductTypeView},
       { path: 'product/salesproduct', component: SaleproductView},
       { path: 'product/productsize', component: ProductSizeComponent},
       { path: 'pricing/productprice', component: ProductPriceView, resolve: { priceList: PriceListResolver }},
-      { path: 'pricing/pricingperiods', component: PricingPeriodView}
+      { path: 'pricing/pricingperiod', component: PricingPeriodView},
+      { path: 'trading/tradinghour', component: TradingHourView}
     ]
   },
 ];

@@ -1,1 +1,1 @@
-<app-price-list-table [PriceListData]="productPriceList"></app-price-list-table>
+<app-price-list-table [PriceListData]="productPriceList" (PriceChangeEvent)="emitPriceChange($event)"></app-price-list-table>

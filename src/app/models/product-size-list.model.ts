@@ -1,6 +1,9 @@
 export interface IProductSizeListItem {
-    id: number;
+    id?: number;
+    organisation_ID: number;
     sizeName: string;
-    sizeMl?: number;
+    sizeMl: number;
     isActive: boolean;
+    isNew?: boolean;
+    productTypeID: number;
 }

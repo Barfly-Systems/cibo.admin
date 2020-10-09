@@ -18,13 +18,16 @@ export class AppComponent implements OnInit {
       let isAbandoned: boolean;
         if(event instanceof ActivationStart){
           let sCookie = this.cookies.getCookieValue('cibo-admin-session')
-          let sCookiesObj = JSON.parse(sCookie);
           if(sCookie){
+            let sCookiesObj = JSON.parse(sCookie);
             let s: ISession = {
               organisationId: sCookiesObj.organisationId,
               loggedIn: true
             }
             this.store.setSession(s);
+          }
+          else{
+            // this.router.navigateByUrl('/login');
           }
         }
       })

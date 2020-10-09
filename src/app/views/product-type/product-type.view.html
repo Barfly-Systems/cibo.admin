@@ -1,0 +1,10 @@
+<div class="w-100 mt-2">
+    <div class="list-container w-30 d-inline-block v-align-top">
+        <app-product-type-list 
+        [productTypeList]="productTypeList" 
+        (addProductTypeRowEvent)="addProductTypeBlankRow($event)"
+        (removeRowEvent)="removeRow($event)"
+        (saveNewTypeEvent)="saveNewType($event)">
+    </app-product-type-list>
+    </div>
+</div>

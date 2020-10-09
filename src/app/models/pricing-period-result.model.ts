@@ -1,7 +1,8 @@
 export interface IGetOrganisationPricingPeriods_Result {
-    iD: number;
+    id: number;
     periodNumber: number;
-    periodStart: Date;
-    periodEnd: Date;
+    periodStart: any;
+    periodEnd: any;
     periodName: string;
+    isNew: boolean;
 }

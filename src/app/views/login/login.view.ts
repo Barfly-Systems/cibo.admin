@@ -41,6 +41,7 @@ export class LoginView implements OnInit {
   }
 
   tryLogin = () => {
+    this.credentials.organisationId = this.credentials.organisationId;
     this.api.tryLogin(this.credentials).subscribe((authResponse: boolean) => {
       if(authResponse){
         let session: ISession = {

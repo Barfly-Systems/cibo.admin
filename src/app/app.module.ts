@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
+import { ChartistModule } from 'ng-chartist';
+
 //ANGULAR MATERIAL
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,6 +24,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker'; //this is not part of the standard library, its an added NPM package
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 //DIRECTIVES
 import { OnlyNumber } from './directives/only-number.directive';
 //VIEWS
@@ -44,6 +50,11 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SelectProductCategoryImageDialog } from './components/dialogs/select-product-category-image/select-product-category-image.dialog';
 import { PricingPeriodView } from './views/pricing-period/pricing-period.view';
 import { PricingPeriodListComponent } from './components/pricing-period-list/pricing-period-list.component';
+import { TradingHourView } from './views/trading-hour/trading-hour.view';
+import { TradingHoursListComponent } from './components/trading-hours-list/trading-hours-list.component';
+import { SalesChart } from './components/charts/sales/sales.chart';
+import { ProductTypeView } from './views/product-type/product-type.view';
+import { ProductTypeListComponent } from './components/product-type-list/product-type-list.component';
 
 
 
@@ -70,7 +81,12 @@ import { PricingPeriodListComponent } from './components/pricing-period-list/pri
     OnlyNumber,
     SelectProductCategoryImageDialog,
     PricingPeriodView,
-    PricingPeriodListComponent
+    PricingPeriodListComponent,
+    TradingHourView,
+    TradingHoursListComponent,
+    SalesChart,
+    ProductTypeView,
+    ProductTypeListComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +107,12 @@ import { PricingPeriodListComponent } from './components/pricing-period-list/pri
     MatCardModule,
     MatSlideToggleModule,
     MatProgressBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule,
+    NgxMaterialTimepickerModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    ChartistModule
   ],
   providers: [
     CookieService

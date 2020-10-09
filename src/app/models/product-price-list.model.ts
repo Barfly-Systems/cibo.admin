@@ -1,12 +1,9 @@
-import {  ISize } from './product-size.model';
+import { IPricing } from './pricing.model';
 
 export interface IProductPriceListItem {
-    product_ID: number;
-    name: string;
-    size_ID?: number;
-    sizeName: string;
-    pricingPeriod_ID?: number;
-    periodName: string;
-    standardPriceGross?: number;
-    standardPriceNet?: number;
+    ProductId: number;
+    ProductSizeId: number;
+    ProductName: string;
+    ProductSizeName: string;
+    Pricing: IPricing[];
 }

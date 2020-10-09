@@ -6,6 +6,9 @@ import { IProductPriceListRaw } from './../../models/get-product-price-list-resu
 import { IProductPriceListItem } from './../../models/product-price-list.model';
 import { switchMap } from 'rxjs/operators';
 import { HelperService } from './../../services/helper.service';
+import { IProductListItem } from 'src/app/models/product-list.model';
+import { IPricing } from 'src/app/models/pricing.model';
+
 
 @Component({
   selector: 'app-product-price',
@@ -14,19 +17,25 @@ import { HelperService } from './../../services/helper.service';
 })
 export class ProductPriceView implements OnInit {
 
-  productPriceList: string;
+  productPriceList: IProductPriceListItem[] = [];
 
   constructor(
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private api: ApiService
   ) 
   {
     this.activatedRoute.data.subscribe(data => {
-      this.productPriceList = JSON.parse(data.priceList[0].jsonResult);
+      this.productPriceList = JSON.parse(data.priceList.jsonResult);
+      console.log(this.productPriceList);
     })
    }
 
-  ngOnInit(): void {}
-
-
+  ngOnInit(): void {
+    }
+  updatePrice = (change: {pricingId: number, price: number}) => {
+    this.api.upsertProductPrice(change.pricingId, change.price).subscribe((data) => {
+      console.log(data);
+    })
+  }
 
 }

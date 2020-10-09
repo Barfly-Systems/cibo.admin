@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { IProductPriceListItem } from './../../models/product-price-list.model';
 
 @Component({
@@ -8,16 +8,17 @@ import { IProductPriceListItem } from './../../models/product-price-list.model';
 })
 export class ProductPriceListComponent implements OnInit, OnChanges {
 
-  @Input() productPriceList:any[] = [];
-
+  @Input() productPriceList:IProductPriceListItem[] = [];
+  @Output() priceChangeEvent: EventEmitter<{pricingId: number, price: number}> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.productPriceList);
   }
 
   ngOnChanges(changes: SimpleChanges){
-    console.log(changes);
   }
 
+  emitPriceChange = (change: {pricingId: number, price: number}) => {
+    this.priceChangeEvent.emit(change);
+  }
 }

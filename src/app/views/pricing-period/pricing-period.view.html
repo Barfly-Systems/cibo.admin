@@ -1,1 +1,5 @@
-<p>pricing-period works!</p>
+<div class="mt-2">
+    <app-pricing-period-list *ngIf="pricingPeriodListLoaded" [pricingPeriodList]="pricingPeriodList" (addRowEvent)="addRow($event)" (deleteRowEvent)="deleteRow($event)" (reloadTableEvent)="getPricingPeriods()"></app-pricing-period-list>
+</div>
+
+

@@ -1,1 +1,52 @@
-<p>pricing-period-list works!</p>
+<table mat-table [dataSource]="pricingPeriodList" class="mat-elevation-z8">
+    <ng-container matColumnDef="periodName">
+        <th mat-header-cell *matHeaderCellDef>Period Name</th>
+        <td mat-cell *matCellDef="let periodName">
+            <span *ngIf="!periodName.isNew">{{periodName.periodName}}</span>
+            <mat-form-field *ngIf="periodName.isNew" class="input-top-padded">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" class="newRow" [(ngModel)]="periodName.periodName" />
+            </mat-form-field>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="periodStart">
+        <th mat-header-cell *matHeaderCellDef>Period Start</th>
+        <td mat-cell *matCellDef="let periodStart">
+            <mat-form-field class="input-top-padded">
+                <mat-label>Start</mat-label>
+                <input matInput [ngxTimepicker]="picker" [format]="12" [value]="periodStart.periodStart" [(ngModel)]="periodStart.periodStart">
+            <ngx-material-timepicker #picker ngxMaterialTimepickerTheme="test"></ngx-material-timepicker>
+            </mat-form-field>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="periodEnd">
+        <th mat-header-cell *matHeaderCellDef>Period End</th>
+        <td mat-cell *matCellDef="let periodEnd">
+            <mat-form-field class="input-top-padded">
+                <mat-label>End</mat-label>
+                <input matInput [ngxTimepicker]="picker" [format]="12" (click)="showModel(periodEnd)" [value]="periodEnd.periodEnd" [(ngModel)]="periodEnd.periodEnd">
+            </mat-form-field>
+            <ngx-material-timepicker #picker ngxMaterialTimepickerTheme="test"></ngx-material-timepicker>
+        </td>
+        <td mat-footer-cell *matFooterCellDef align="right">
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let actions; index as i">
+            <button *ngIf="actions.isNew" class="mr-1" mat-mini-fab color="accent" (click)="saveRow(actions)"
+            [disabled]="actions.periodName == null || actions.periodName.trim() == '' || actions.periodStart == null || actions.periodEnd == null">
+            <mat-icon>check</mat-icon></button>
+            <button *ngIf="actions.isNew" mat-mini-fab color="warn" (click)="removeRow(i)">
+            <mat-icon>delete</mat-icon></button>
+        </td>
+        <td mat-footer-cell *matFooterCellDef align="right">
+            <button mat-flat-button color="accent" (click)="addRow()">New</button>
+        </td>
+    </ng-container> 
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="finger"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+</table>

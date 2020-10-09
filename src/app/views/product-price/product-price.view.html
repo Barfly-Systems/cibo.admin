@@ -1,3 +1,4 @@
 <div class="mt-2">
-    <app-product-price-list [productPriceList]="productPriceList"></app-product-price-list>
+    <!-- <app-product-price-list [productPriceList]="productPriceList"></app-product-price-list> -->
+    <app-price-list-table [PriceListData]="productPriceList" (PriceChangeEvent)="updatePrice($event)"></app-price-list-table>
 </div>

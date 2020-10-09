@@ -104,6 +104,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .capitalize{
     text-transform: capitalize;
 }
+.brandMainBG{
+    background-color: $brandColMain;
+}
 .green{
     color: $brandColAccent;
 }
@@ -147,4 +150,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .finger{
     cursor: pointer;
+}
+
+.timepicker{
+    box-shadow: none !important;
+}
+
+.input-top-padded{
+    padding-top: 0.5em;
+}
+
+.mat-drawer-inner-container{
+    background-color: #9abd97 !important;
+}
+
+.mat-list-item-content{
+    color: white;
 }

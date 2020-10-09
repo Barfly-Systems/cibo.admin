@@ -30,4 +30,8 @@ export class AppState {
    get session(): ISession{
      return this.state.session;
    }  
+
+   get organisationId(): number{
+     return this.state.session.organisationId;
+   }
 }

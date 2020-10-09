@@ -4,12 +4,19 @@
         opened 
         class="example-sidenav"
         [fixedInViewport]="true" 
-        [fixedTopGap]="10"
         [fixedBottomGap]="10">
-        <mat-accordion>
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+              <h1> cibo </h1>
+            </mat-toolbar-row>
+          </mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item (click)="changeCategory(link)" *ngFor="let link of outerLinks"><mat-icon class="mr-2">{{link.icon}}</mat-icon>{{link.label}}</a>
+        </mat-nav-list>
+        <!-- <mat-accordion>
             <mat-expansion-panel>
               <mat-expansion-panel-header>
-               Products
+                <mat-icon>local_drink</mat-icon> Products
               </mat-expansion-panel-header>
               <ul>
                   <li><a routerLink="product/productcategory">Product Categories</a></li>
@@ -19,19 +26,21 @@
             </mat-expansion-panel>
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                    Pricing
+                    <mat-icon>attach_money</mat-icon> Pricing
                    </mat-expansion-panel-header>
                    <ul>
                        <li><a routerLink="pricing/pricingperiods">Pricing Periods</a></li>
                        <li><a routerLink="pricing/productprice">Product Prices</a></li>
                    </ul>
             </mat-expansion-panel>
-          </mat-accordion>
+          </mat-accordion> -->
     </mat-sidenav>
     <mat-sidenav-content>
-        <!-- <mat-toolbar color="primary">
-            <span>Products > Product Category</span>
-        </mat-toolbar> -->
+        <nav mat-tab-nav-bar [backgroundColor]="background">
+            <a mat-tab-link *ngFor="let link of selectedLink.innerLinks"
+            (click)="setInnerLink(link)"
+            [active]="activeInnerLink == link"> {{link.label}} </a>
+          </nav>
         <mat-progress-bar *ngIf="loading" color="accent" mode="indeterminate"></mat-progress-bar>
         <div style="width: 85vw; height: 100vh">
             <router-outlet></router-outlet>

@@ -1,3 +1,5 @@
+import { IProductSizeListItem } from './product-size-list.model';
+
 export interface IProductListItem {
     id: number;
     productType_ID: number;
@@ -24,4 +26,6 @@ export interface IProductListItem {
     containsAlcohol: boolean;
     geographicOrigin: string;
     abv?: number;
+    allergens?: {name: string, value: boolean}[];
+    sizes?: IProductSizeListItem[];
 }

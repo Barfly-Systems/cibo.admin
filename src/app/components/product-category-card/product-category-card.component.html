@@ -4,7 +4,7 @@
         <input matInput type='categoryName' [(ngModel)]="productCategory.categoryName">
     </mat-form-field>
     <mat-slide-toggle [(ngModel)]="productCategory.isActive" name="categoryIsActive">Active</mat-slide-toggle>
-    <img mat-card-image  [src]="'/assets/img/' + productCategory.imagePath" [alt]="'Category image for ' + productCategory.categoryName">
+    <img mat-card-image  [src]="'assets/img/' + productCategory.imagePath" [alt]="'Category image for ' + productCategory.categoryName">
     <mat-card-actions>
         <button mat-flat-button class="mr-1" color="accent" (click)="openSelectImage()">Change</button>
         <button mat-flat-button color="accent" [disabled]="true">Save</button>

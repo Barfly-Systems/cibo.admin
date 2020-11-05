@@ -1,3 +1,11 @@
 <div class="mt-2">
-    <app-trading-hours-list [tradingHoursList]="tradingHoursList" [pricingPeriods]="pricingPeriods" (upsertTradingHoursPricingPeriodEvent)="upsertTHPP($event)"></app-trading-hours-list>
+    <app-trading-hours-list 
+    [tradingHoursList]="tradingHoursList" 
+    [pricingPeriods]="pricingPeriods" 
+    [tradingHoursTypes]="tradingHoursTypeList"
+    (upsertTradingHoursPricingPeriodEvent)="upsertTHPP($event)"
+    (newTradingHoursRowEvent)="addNewTradingHoursRow()"
+    (removeNewTrandingHoursRowEvent)="removeTradingHoursRow($event)"
+    (upsertTradingHoursEvent)="upsertTradingHours($event)"
+    ></app-trading-hours-list>
 </div>

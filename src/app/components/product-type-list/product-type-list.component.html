@@ -19,15 +19,17 @@
             <mat-icon>check</mat-icon></button>
             <button *ngIf="type.isNew" mat-mini-fab color="warn" (click)="removeRow(i)">
             <mat-icon>delete</mat-icon></button>
+            <!-- <button *ngIf="!type.isNew" mat-flat-button color="accent">Edit</button> -->
             <button *ngIf="!type.isNew" class="mr-1" mat-mini-fab color="accent" (click)="type.isNew = true">
                 <mat-icon>edit</mat-icon>
             </button>
         </td>
         <td mat-footer-cell *matFooterCellDef align="right">
-            <button mat-flat-button color="accent" (click)="addRow()">New</button>
+            <!-- <button mat-mini-fab color="warn" (click)="addRow()"><mat-icon>add</mat-icon></button> -->
         </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="finger"></tr>
     <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
 </table>
+<button mat-fab class="f-br" (click)="addRow()"><mat-icon>add</mat-icon></button>

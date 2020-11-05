@@ -1,10 +1,10 @@
 <h2 mat-dialog-title>Select image for {{currentCategoryData.categoryName}}</h2>
     <mat-dialog-content class="mat-typography v-centered">
         <button mat-fab color="accent" class="mx-2" (click)="changeCurrentIndex(-1)"><mat-icon>chevron_left</mat-icon></button>
-        <img [src]="'/assets/img/' + imagePaths[currentImageIndex]">
+        <img [src]="'assets/img/' + imagePaths[currentImageIndex]">
         <button mat-fab color="accent" class="mx-2" (click)="changeCurrentIndex(1)"><mat-icon>chevron_right</mat-icon></button>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-flat-button mat-dialog-close cdkFocusInitial>Select</button>
+        <button mat-flat-button cdkFocusInitial (click)="selectImage()">Select</button>
     </mat-dialog-actions>

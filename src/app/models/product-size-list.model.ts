@@ -5,5 +5,6 @@ export interface IProductSizeListItem {
     sizeMl: number;
     isActive: boolean;
     isNew?: boolean;
+    isLocked?: boolean;
     productTypeID: number;
 }

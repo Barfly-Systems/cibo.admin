@@ -28,6 +28,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker'; //this is
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 //DIRECTIVES
 import { OnlyNumber } from './directives/only-number.directive';
 //VIEWS
@@ -55,6 +56,11 @@ import { TradingHoursListComponent } from './components/trading-hours-list/tradi
 import { SalesChart } from './components/charts/sales/sales.chart';
 import { ProductTypeView } from './views/product-type/product-type.view';
 import { ProductTypeListComponent } from './components/product-type-list/product-type-list.component';
+import { OrganisationView } from './views/organisation/organisation.view';
+import { OrganisationDetailsComponent } from './components/organisation-details/organisation-details.component';
+import { TablesView } from './views/tables/tables.view';
+import { TableListComponent } from './components/table-list/table-list.component';
+import { ToastComponent } from './components/dialogs/toast/toast.component';
 
 
 
@@ -86,7 +92,12 @@ import { ProductTypeListComponent } from './components/product-type-list/product
     TradingHoursListComponent,
     SalesChart,
     ProductTypeView,
-    ProductTypeListComponent
+    ProductTypeListComponent,
+    OrganisationView,
+    OrganisationDetailsComponent,
+    TablesView,
+    TableListComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -112,6 +123,7 @@ import { ProductTypeListComponent } from './components/product-type-list/product
     NgxMaterialTimepickerModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatSnackBarModule,
     ChartistModule
   ],
   providers: [

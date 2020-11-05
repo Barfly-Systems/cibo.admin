@@ -9,7 +9,7 @@
         <td mat-cell *matCellDef="let ID">
             <mat-form-field class="input-top-padded">
                 <mat-label>Start</mat-label>
-                <input matInput [ngxTimepicker]="picker" [format]="12" [value]="ID.tradingHoursStart">
+                <input matInput [ngxTimepicker]="picker" [format]="12" [value]="ID.tradingHoursStart" [(ngModel)]="ID.tradingHoursStart">
             <ngx-material-timepicker #picker ngxMaterialTimepickerTheme="test"></ngx-material-timepicker>
             </mat-form-field>
         </td>
@@ -20,7 +20,7 @@
         <td mat-cell *matCellDef="let ID">
             <mat-form-field class="input-top-padded">
                 <mat-label>End</mat-label>
-                <input matInput [ngxTimepicker]="picker" [format]="12" [value]="ID.tradingHoursEnd">
+                <input matInput [ngxTimepicker]="picker" [format]="12" [value]="ID.tradingHoursEnd" [(ngModel)]="ID.tradingHoursEnd">
             <ngx-material-timepicker #picker ngxMaterialTimepickerTheme="test"></ngx-material-timepicker>
             </mat-form-field>
         </td>
@@ -28,7 +28,16 @@
     </ng-container>
     <ng-container matColumnDef="organsationTradingHoursTypeID">
         <th mat-header-cell *matHeaderCellDef>Type</th>
-        <td mat-cell *matCellDef="let ID">{{ID.organisationTradingHoursTypeLabel}}</td>
+        <td mat-cell *matCellDef="let ID">
+            <span *ngIf="!ID.isNew">{{ID.organisationTradingHoursTypeLabel}}</span>
+            <mat-form-field *ngIf="ID.isNew" appearance="fill">
+                <mat-label></mat-label>
+                <mat-select [(value)]="ID.organsationTradingHoursTypeID" (selectionChange)="null">
+                  <mat-option></mat-option>
+                  <mat-option [value]="option.id" *ngFor="let option of tradingHoursTypes">{{ option.name }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </td>
         <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
     <ng-container matColumnDef="specificDay">
@@ -44,7 +53,7 @@
         <td mat-cell *matCellDef="let pricingPeriod">
             <mat-form-field appearance="fill">
                 <mat-label></mat-label>
-                <mat-select [(value)]="pricingPeriod.pricingPeriod_ID" (selectionChange)="updateTradingHoursPricingPeriod($event, pricingPeriod)">
+                <mat-select [(value)]="pricingPeriod.pricingPeriod_ID" (selectionChange)="!pricingPeriod.isNew ? updateTradingHoursPricingPeriod($event, pricingPeriod) : test(pricingPeriod)">
                   <mat-option></mat-option>
                   <mat-option [value]="option.id" *ngFor="let option of pricingPeriods">{{ option.periodName }}</mat-option>
                 </mat-select>
@@ -55,7 +64,22 @@
             <button mat-flat-button color="accent" [disabled]="true">Update</button>
         </td>
     </ng-container>
+    <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell class="w-30" *matCellDef="let type; index as i">
+            <button *ngIf="type.isNew" class="mr-1" mat-mini-fab color="accent" [disabled]="type.tradingHoursStart == '' || type.tradingHoursStart == null || type.tradingHoursEnd == '' || type.organsationTradingHoursTypeID == null || type.pricingPeriod_ID == null" (click)="saveNewTradingHours(type)">
+            <mat-icon>check</mat-icon></button>
+            <button *ngIf="type.isNew" mat-mini-fab color="warn" (click)="removeRow(i)">
+            <mat-icon>delete</mat-icon></button>
+            <!-- <button *ngIf="!type.isNew" class="mr-1" mat-mini-fab color="accent" (click)="type.isNew = true">
+                <mat-icon>edit</mat-icon>
+            </button> -->
+        </td>
+        <td mat-footer-cell *matFooterCellDef align="right">
+        </td>
+    </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="finger"></tr>
     <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
 </table>
+<button mat-fab class="f-br" (click)="addNewRow()"><mat-icon>add</mat-icon></button>

@@ -10,7 +10,7 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
-    <ng-container matColumnDef="periodStart">
+    <!-- <ng-container matColumnDef="periodStart">
         <th mat-header-cell *matHeaderCellDef>Period Start</th>
         <td mat-cell *matCellDef="let periodStart">
             <mat-form-field class="input-top-padded">
@@ -32,21 +32,22 @@
         </td>
         <td mat-footer-cell *matFooterCellDef align="right">
         </td>
-    </ng-container>
+    </ng-container> -->
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let actions; index as i">
             <button *ngIf="actions.isNew" class="mr-1" mat-mini-fab color="accent" (click)="saveRow(actions)"
-            [disabled]="actions.periodName == null || actions.periodName.trim() == '' || actions.periodStart == null || actions.periodEnd == null">
+            [disabled]="actions.periodName == null || actions.periodName.trim() == ''">
             <mat-icon>check</mat-icon></button>
             <button *ngIf="actions.isNew" mat-mini-fab color="warn" (click)="removeRow(i)">
             <mat-icon>delete</mat-icon></button>
         </td>
         <td mat-footer-cell *matFooterCellDef align="right">
-            <button mat-flat-button color="accent" (click)="addRow()">New</button>
+            <!-- <button mat-flat-button color="accent" (click)="addRow()">New</button> -->
         </td>
     </ng-container> 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="finger"></tr>
     <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
 </table>
+<button mat-fab class="f-br" (click)="addRow()"><mat-icon>add</mat-icon></button>

@@ -1,10 +1,10 @@
 import { IProductSizeListItem } from './product-size-list.model';
 
 export interface IProductListItem {
-    id: number;
+    id?: number;
     productType_ID: number;
     productTypeName: string;
-    productName: string;
+    name: string;
     isActive: boolean;
     productCategory_ID?: number;
     categoryName: string;
@@ -28,4 +28,6 @@ export interface IProductListItem {
     abv?: number;
     allergens?: {name: string, value: boolean}[];
     sizes?: IProductSizeListItem[];
+    isLocked?: boolean;
+    isNew?: boolean;
 }

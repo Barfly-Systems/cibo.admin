@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IProductCategory } from 'src/app/models/product-category.model';
 
 import { DialogService } from './../../services/dialog.service';
 import { AppState } from 'src/app/services/state.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-product-category-card',
@@ -12,14 +13,19 @@ import { AppState } from 'src/app/services/state.service';
 export class ProductCategoryCardComponent implements OnInit {
 
   @Input() productCategory: IProductCategory;
-
-  constructor(private dialogs: DialogService, private store: AppState) { }
+  @Output() categoryEditedEvent: EventEmitter<number> = new EventEmitter();
+  constructor(private dialogs: DialogService, private store: AppState, private api: ApiService) { }
 
   ngOnInit(): void {
   }
 
   openSelectImage = () => {
-    this.dialogs.openSelectCategoryImageDialog(this.productCategory);
+    this.dialogs.openSelectCategoryImageDialog(this.productCategory).subscribe(result => {
+      this.api.upsertProductCategoryImage(this.store.organisationId, result.categoryData.id, result.imageData.id).subscribe(data => {
+        console.log(data);
+        this.categoryEditedEvent.emit(result.categoryData.id);
+      })
+    })
   }
 
 }

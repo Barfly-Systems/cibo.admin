@@ -1,3 +1,13 @@
 <div class="mt-2">
-    <app-saleproduct-list [saleproductList]="productList" (updateProductProductSizeEvent)="updateProductProductSize($event)"></app-saleproduct-list>
+    <app-saleproduct-list 
+        [saleproductList]="productList" 
+        [productTypeList]="productTypeList"
+        [productCategoryList]="productCategoryList"
+        [editMode]="listEditMode"
+        [expandedElement]="listExpandedElement"
+        (updateProductProductSizeEvent)="updateProductProductSize($event)"
+        (updateProductDescriptionEvent)="updateProductDescription($event)"
+        (getProductListEvent)="getProductList()"
+        (addNewRowEvent)="addNewRow()">
+    </app-saleproduct-list>
 </div>

@@ -1,12 +1,23 @@
 <table mat-table [dataSource]="productCategoryList" class="mat-elevation-z8">
     <ng-container matColumnDef="categoryName">
         <th mat-header-cell *matHeaderCellDef>Category Name</th>
-        <td mat-cell *matCellDef="let category">{{category.categoryName}}</td>
+        <td mat-cell *matCellDef="let category">
+            <span *ngIf="!category.isNew">{{category.categoryName}}</span>
+            <mat-form-field *ngIf="category.isNew" class="input-top-padded">
+                <mat-label>Category Name</mat-label>
+                <input matInput type="text" class="newRow" [(ngModel)]="category.categoryName" />
+            </mat-form-field>
+        </td>
     </ng-container>
     <ng-container matColumnDef="isActive">
         <th mat-header-cell *matHeaderCellDef>Active</th>
         <td mat-cell *matCellDef="let category"><mat-icon [class]="category.isActive ? 'green' : 'red'">{{ category.isActive ? 'check' : 'close' }}</mat-icon></td>
     </ng-container>
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let category"><button *ngIf="category.isNew" mat-mini-fab color="accent" [disabled]="category.categoryName == null && category.categoryName?.trim() == ''" class="green" (click)="addNewCategory(category)"><mat-icon>check</mat-icon></button></td>
+    </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="finger" (click)="selectCategory(row)"></tr>
 </table>
+<button mat-fab class="f-br" (click)="addNewCategoryRow()"><mat-icon>add</mat-icon></button>

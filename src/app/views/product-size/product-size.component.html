@@ -1,7 +1,11 @@
 <div class="mt-2">
     <app-product-size-list 
         [productSizeList]="productSizeList" 
+        [productTypeList]="productTypeList"
         (addProductSizeEvent)="addBlankProductSize($event)"
         (deleteRowEvent)="removeRow($event)"
-        (saveNewProductSizeEvent)="saveNewSize($event)"></app-product-size-list>
+        (saveNewProductSizeEvent)="saveNewSize($event)"
+        (updateProductSizeTypeEvent)="upsertPST($event)"
+        (getProductSizeListEvent)="getProductList()">
+    </app-product-size-list>
 </div>

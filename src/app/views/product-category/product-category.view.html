@@ -1,10 +1,16 @@
 <!--LIST OF EXISTING CATEGORIES-->
 <div class="w-100 mt-2">
     <div class="list-container w-30 d-inline-block v-align-top">
-        <app-category-list [productCategoryList]="productCategoryList" (selectedCategoryEvent)="setSelectedCategory($event)"></app-category-list>
+        <app-category-list 
+            [productCategoryList]="productCategoryList" 
+            (selectedCategoryEvent)="setSelectedCategory($event)"
+            (addNewCategoryRowEvent)="addNewCategoryRow()"
+            (addNewCategoryEvent)="addNewCategory($event)"
+            >
+        </app-category-list>
     </div>
     <div class="list-container w-70 d-inline-block v-align-top">
-        <app-product-category-card [productCategory]="selectedCategory"></app-product-category-card>
+        <app-product-category-card [productCategory]="selectedCategory" (categoryEditedEvent)="reloadCategoryCard($event)"></app-product-category-card>
     </div>
 </div>
 

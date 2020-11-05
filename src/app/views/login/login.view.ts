@@ -8,6 +8,9 @@ import { ApiService } from './../../services/api.service';
 import { CookiesService } from './../../services/cookie.service';
 import { ISession } from 'src/app/models/app-state.model';
 
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.view.html',
@@ -27,11 +30,14 @@ export class LoginView implements OnInit {
     private api: ApiService, 
     private router: Router, 
     private store: AppState,
-    private cookies: CookiesService) 
+    private cookies: CookiesService,
+    private _snackbar: MatSnackBar) 
     {
+      
     }
 
   ngOnInit(): void {
+    this._snackbar.dismiss();
     let session = this.cookies.getCookieValue('cibo-admin-session');
     console.log(session);
     console.log(document.cookie);
@@ -53,7 +59,10 @@ export class LoginView implements OnInit {
         tomorrow.setDate(currentDate.getDate() + 1);
         this.cookies.setCookie('cibo-admin-session', JSON.stringify(this.credentials), tomorrow);
         this.store.setSession(session);
-        this.router.navigateByUrl('/app/dashboard');
+        var cookies = this.cookies.getCookieValue('cibo-admin-session');
+        console.log(cookies);
+        this.router.navigateByUrl('app/dashboard');
+
       }
       else{
         alert("OrganisationId not recognised");

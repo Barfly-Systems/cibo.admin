@@ -12,6 +12,7 @@
           </mat-toolbar>
         <mat-nav-list>
             <a mat-list-item (click)="changeCategory(link)" *ngFor="let link of outerLinks"><mat-icon class="mr-2">{{link.icon}}</mat-icon>{{link.label}}</a>
+            <a mat-list-item (click)="logout()"><mat-icon class="mr-2">exit_to_app</mat-icon>Logout</a>
         </mat-nav-list>
         <!-- <mat-accordion>
             <mat-expansion-panel>

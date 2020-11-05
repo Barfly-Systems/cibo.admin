@@ -26,16 +26,16 @@ export class PricingPeriodView implements OnInit {
     this.api.getOrganiationPricingPeriods(this.store.session.organisationId, false, false).subscribe((data: IGetOrganisationPricingPeriods_Result[]) => {
       this.pricingPeriodList = data;
       console.log(this.pricingPeriodList);
-      this.pricingPeriodList.map((pp: IGetOrganisationPricingPeriods_Result) => {
-        if(pp.periodStart != null){
-            // pp.periodStart = this.setTime(pp.periodStart.value);
-            pp.periodStart = this.parseTimeForPicker(pp.periodStart);
-        }
-        if(pp.periodEnd != null){
-          // pp.periodEnd = this.setTime(pp.periodEnd.value);
-          pp.periodEnd = this.parseTimeForPicker(pp.periodEnd);
-        }
-      });
+      // this.pricingPeriodList.map((pp: IGetOrganisationPricingPeriods_Result) => {
+      //   if(pp.periodStart != null){
+      //       // pp.periodStart = this.setTime(pp.periodStart.value);
+      //       pp.periodStart = this.parseTimeForPicker(pp.periodStart);
+      //   }
+      //   if(pp.periodEnd != null){
+      //     // pp.periodEnd = this.setTime(pp.periodEnd.value);
+      //     pp.periodEnd = this.parseTimeForPicker(pp.periodEnd);
+      //   }
+      // });
       console.log(this.pricingPeriodList);
       this.pricingPeriodListLoaded = true;
     })

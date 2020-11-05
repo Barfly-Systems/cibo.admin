@@ -9,7 +9,16 @@
 // }
 
 table {
-    width: 100%;
+    width: 97%;
+    margin-left: 1.5%;
+  }
+
+  td{
+    width: calc(100% / 8);
+  }
+
+  .td-x2{
+    width: calc((100%/8)*2);
   }
   
   tr.example-detail-row {

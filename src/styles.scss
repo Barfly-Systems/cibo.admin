@@ -30,6 +30,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-top: $paddingUnit * 2 !important;
     margin-bottom: $paddingUnit * 2 !important;
 }
+.my-4{
+    margin-top: $paddingUnit * 4 !important;
+    margin-bottom: $paddingUnit * 4 !important;
+    //adam
+}
 .mx-2{
     margin-left: $paddingUnit * 2 !important;
     margin-right: $paddingUnit * 2 !important;
@@ -49,16 +54,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mt-2{
     margin-top: $paddingUnit * 2.5 !important;
 }
+.f-br{
+    position: fixed !important;
+    bottom: 2rem;
+    right: 1rem;
+}
 /*END OF SPACING*/
 /*SIZING*/
 .w-30{
     width: 30%;
+}
+.w-40{
+    width: 40%;
 }
 .w-50{
     width: 50%;
 }
 .w-70{
     width: 69%;
+}
+.w-100{
+    width: 100%;
 }
 /*END OF SIZING*/
 /*DISPLAY*/
@@ -90,10 +106,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .bold{
     font-weight: 550 !important;
 }
+.italic{
+    font-style: italic;
+}
 .center{
     text-align: center;
 }
 .text-primary{
+    color: $brandColMain;
 }
 .name-large{
     font-size: 1rem;

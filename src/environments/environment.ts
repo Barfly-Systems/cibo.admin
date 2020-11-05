@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'https://localhost:44339/api',
-  pathReplaceString: ''
+  pathReplaceString: '',
+  cookieDomain: 'localhost'
 };
 
 /*

@@ -4,6 +4,9 @@ import { MatSidenav } from '@angular/material/sidenav';
 
 import { SelectProductCategoryImageDialog } from './../components/dialogs/select-product-category-image/select-product-category-image.dialog';
 import { IProductCategory } from '../models/product-category.model';
+import { ApiService } from './api.service';
+import { AppState } from './state.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +15,17 @@ export class DialogService {
 
   private sidenav: MatSidenav;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private api: ApiService, private store: AppState) { }
 
-  openSelectCategoryImageDialog = (category: IProductCategory) => {
+  openSelectCategoryImageDialog = (category: IProductCategory): Observable<any> => {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
-      category: category
+      category: category,
     }
 
     const dialogRef = this.dialog.open(SelectProductCategoryImageDialog, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-    })
+    return dialogRef.afterClosed();
   }
 
   // openAbandonBasketDialog = (pubName: string) => {

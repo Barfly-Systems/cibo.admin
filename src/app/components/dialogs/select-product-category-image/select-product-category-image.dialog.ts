@@ -13,6 +13,7 @@ export class SelectProductCategoryImageDialog implements OnInit {
   currentImageIndex: number = 0;
   currentCategoryData: IProductCategory;
   imagePaths: string[] = [];
+  imageDataList: any[] = [];
 
   constructor(
     private api: ApiService,
@@ -23,11 +24,12 @@ export class SelectProductCategoryImageDialog implements OnInit {
     }
 
   ngOnInit(): void {
+    console.log(this.currentCategoryData);
     this.api.getProductCategoryImages().subscribe((data: any[]) => {
+      this.imageDataList = data;
       this.imagePaths = data.map((ip) => {
         return ip.imagePath;
       })
-      console.log(this.imagePaths);
     });
   }
 
@@ -44,5 +46,10 @@ export class SelectProductCategoryImageDialog implements OnInit {
     }
     this.currentImageIndex += changeInt;
     console.log(this.currentImageIndex);
+    console.log(this.imagePaths[this.currentImageIndex]);
+  }
+
+  selectImage = () => {
+    this.dialogRef.close({imageData: this.imageDataList[this.currentImageIndex], categoryData: this.currentCategoryData});
   }
 }

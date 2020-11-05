@@ -10,8 +10,11 @@ export class CategoryListComponent implements OnInit {
 
   @Input() productCategoryList: IProductCategory[];
   @Output() selectedCategoryEvent: EventEmitter<IProductCategory> = new EventEmitter<IProductCategory>();
+  @Output() addNewCategoryRowEvent: EventEmitter<boolean> = new EventEmitter();
+  @Output() addNewCategoryEvent: EventEmitter<IProductCategory> = new EventEmitter();
+  @Output() loadCategoriesEvent: EventEmitter<boolean> = new EventEmitter();
 
-  displayedColumns: string[] = ['categoryName', 'isActive'];
+  displayedColumns: string[] = ['categoryName', 'isActive', 'actions'];
   constructor() { }
 
   ngOnInit(): void {
@@ -20,6 +23,15 @@ export class CategoryListComponent implements OnInit {
   selectCategory = (productCategory: IProductCategory) => {
     this.selectedCategoryEvent.emit(productCategory);
     console.log(productCategory);
+  }
+
+  addNewCategoryRow = () => {
+    this.addNewCategoryRowEvent.emit(true);
+  }
+
+  addNewCategory = (newCategory: IProductCategory) => {
+    this.addNewCategoryEvent.emit(newCategory);
+    this.loadCategoriesEvent.emit(true);
   }
 
 }

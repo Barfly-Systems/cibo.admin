@@ -1,0 +1,9 @@
+<div class="w-100 mt-2">
+    <div class="list-container w-40 d-inline-block v-align-top">
+        <app-table-list
+        [tableList]="tableList"
+        (addBlankTableEvent)="addBlankTable()"
+        (saveTableEvent)="saveTable($event)">
+        </app-table-list>
+    </div>
+</div>

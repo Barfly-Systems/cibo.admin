@@ -1,0 +1,10 @@
+<mat-card class="example-card">
+    <mat-form-field>
+        <mat-label>Establishment Name</mat-label>
+        <input matInput type='categoryName' disabled [value]="organisationDetails.name" [(ngModel)]="organisationDetails.name">
+    </mat-form-field>
+    <mat-card-actions>
+        <!-- <button mat-flat-button class="mr-1" color="accent" (click)="null">Change</button>
+        <button mat-flat-button color="accent" [disabled]="true">Save</button> -->
+    </mat-card-actions>
+</mat-card>

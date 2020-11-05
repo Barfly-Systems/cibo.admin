@@ -20,7 +20,7 @@ export class ProductTypeListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addRow = (el) => {
+  addRow = () => {
     this.addProductTypeRowEvent.emit(true);
   }
 

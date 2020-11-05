@@ -19,7 +19,8 @@ export class PricingPeriodListComponent implements OnInit, OnChanges {
   @Output() reloadTableEvent: EventEmitter<true> = new EventEmitter();
   @ViewChildren('.newRow') newRows: QueryList<Input>;
 
-  displayedColumns: string[] = ["periodName", "periodStart", "periodEnd", "actions"]
+  // displayedColumns: string[] = ["periodName", "periodStart", "periodEnd", "actions"]
+  displayedColumns: string[] = ["periodName", "actions"]
 
   picker = {};
 
@@ -51,13 +52,13 @@ export class PricingPeriodListComponent implements OnInit, OnChanges {
 
   saveRow = (row) => {
     console.log(row);
-    let startPeriod =  HelperService.convertPickerTimeToDateTimeObject(row.periodStart);
-    let endPeriod = HelperService.convertPickerTimeToDateTimeObject(row.periodEnd);
+    // let startPeriod =  HelperService.convertPickerTimeToDateTimeObject(row.periodStart);
+    // let endPeriod = HelperService.convertPickerTimeToDateTimeObject(row.periodEnd);
     let newPricingPeriod: PricingPeriod = {
       organisationId: this.store.session.organisationId,
       periodNumber: null,
-      periodStart: startPeriod,
-      periodEnd: endPeriod,
+      periodStart: null,
+      periodEnd: null,
       isActive: true,
       isArchived: false,
       createdOn: new Date().toISOString(),

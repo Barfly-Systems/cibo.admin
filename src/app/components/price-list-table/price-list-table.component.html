@@ -11,9 +11,8 @@
         <ng-container matColumnDef="{{col}}">
             <th mat-header-cell *matHeaderCellDef>{{col}}</th>
             <td mat-cell *matCellDef="let el">
-                <mat-form-field class="input-top-padded" *ngIf="tryParseNumber(el[col].StandardPriceGross) || (hasProp(el[col], 'StandardPriceGross')) || el[col] == undefined" >
+                <mat-form-field class="input-top-padded" *ngIf="tryParseNumber(el[col].StandardPriceGross) || (hasProp(el[col], 'StandardPriceGross')) || el[col] == undefined" appearance="outline">
                     <mat-label>Price</mat-label>
-                    <span matPrefix>£</span>
                     <input OnlyNumber="true" matInput type='number' [ngModel]="el[col].StandardPriceGross | number:'1.2-2'" (ngModelChange)="updatePrice(el[col], $event)" (click)="showModel(col)" (blur)="transformAmount($event)">
                 </mat-form-field>
                 <span *ngIf="!hasProp(el[col], 'StandardPriceGross')">{{el[col]}}</span>
